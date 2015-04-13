@@ -30,10 +30,11 @@ class ViewController: UIViewController {
     
     @IBAction func operate(sender: UIButton) {
         var operatorClicked = sender.currentTitle!
-        var result = Double()
+
+        numbersToBeCalculted.append(display.text!)
         
         switch operatorClicked {
-        case "↵" : numbersToBeCalculted.append(display.text!)
+//        case "↵" : numbersToBeCalculted.append(display.text!)
         case "+" : calculate({ $1 + $0 })
         case "−" : calculate({ $1 - $0 })
         case "×" : calculate({ $1 * $0 })
