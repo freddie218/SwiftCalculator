@@ -11,19 +11,42 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var clickHistory: UILabel!
     
     var userIsInTheMiddleOfTyping = false
     
     var numbersToBeCalculted = Array<String>()
+    var clickedHistoryInMemory = Array<String>()
+    
+    @IBAction func clearMemory(sender: UIButton) {
+        numbersToBeCalculted = Array<String>()
+        clickedHistoryInMemory = Array<String>()
+        display.text = "0"
+        clickHistory.text = ""
+    }
     
     @IBAction func clickButton(sender: UIButton) {
+        
+        if display.text! == "∏" {
+            appendTheDisplay()
+            userIsInTheMiddleOfTyping = false
+        }
+
         let clickedButton = sender.currentTitle!
         
+        if display.text!.rangeOfString(".") != nil && clickedButton == "." { return }
+        
         if userIsInTheMiddleOfTyping {
-            display.text = display.text! + clickedButton
+            if clickedButton == "∏" {
+                appendTheDisplay ()
+                display.text = "∏"
+            } else {
+                display.text = display.text! + clickedButton
+            }
+            
         } else {
             display.text = clickedButton
-            userIsInTheMiddleOfTyping = true
+            userIsInTheMiddleOfTyping = true            
         }
         
     }
@@ -31,16 +54,19 @@ class ViewController: UIViewController {
     @IBAction func operate(sender: UIButton) {
         var operatorClicked = sender.currentTitle!
 
-        numbersToBeCalculted.append(display.text!)
+        appendTheDisplay ()
+        updateClickHistory(operatorClicked)
         
         switch operatorClicked {
 //        case "↵" : numbersToBeCalculted.append(display.text!)
-        case "+" : calculate({ $1 + $0 })
-        case "−" : calculate({ $1 - $0 })
-        case "×" : calculate({ $1 * $0 })
-        case "÷" : calculate({ $1 / $0 })
-        case "√" : calculate({ sqrt($0) })
-        default : break
+            case "+" : calculate({ $1 + $0 })
+            case "−" : calculate({ $1 - $0 })
+            case "×" : calculate({ $1 * $0 })
+            case "÷" : calculate({ $1 / $0 })
+            case "√" : calculate({ sqrt($0) })
+            case "sin" : calculate({ sin($0) })
+            case "cos" : calculate({ cos($0) })
+            default : break
         }
 
         userIsInTheMiddleOfTyping = false
@@ -55,7 +81,6 @@ class ViewController: UIViewController {
             var result = binaryCal(num1: number1, num2: number2)
             
             display.text = "\(result)";
-            numbersToBeCalculted.append("\(result)")
         }
     }
     
@@ -65,8 +90,22 @@ class ViewController: UIViewController {
             var result = singularCal(num1: number1)
             
             display.text = "\(result)";
-            numbersToBeCalculted.append("\(result)")
         }
+    }
+    
+    func appendTheDisplay () {
+        if display.text! == "∏" {
+            numbersToBeCalculted.append("\(M_PI)")
+        } else {
+            numbersToBeCalculted.append(display.text!)
+        }
+
+        updateClickHistory(display.text!)
+    }
+    
+    func updateClickHistory (saveForMemory: String) {
+        clickedHistoryInMemory.append(saveForMemory)
+        clickHistory.text = clickedHistoryInMemory.description
     }
     
     override func viewDidLoad() {
