@@ -13,6 +13,8 @@
 		113AD0491AD5E93D00B63036 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 113AD0481AD5E93D00B63036 /* Images.xcassets */; };
 		113AD04C1AD5E93D00B63036 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113AD04A1AD5E93D00B63036 /* LaunchScreen.xib */; };
 		113AD0581AD5E93D00B63036 /* SwiftCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113AD0571AD5E93D00B63036 /* SwiftCalculatorTests.swift */; };
+		11CE1FD81AE569A9001E5C4E /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE1FD71AE569A9001E5C4E /* FaceViewController.swift */; };
+		11CE1FDA1AE56A02001E5C4E /* FaceUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE1FD91AE56A02001E5C4E /* FaceUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		113AD0511AD5E93D00B63036 /* SwiftCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		113AD0561AD5E93D00B63036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		113AD0571AD5E93D00B63036 /* SwiftCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCalculatorTests.swift; sourceTree = "<group>"; };
+		11CE1FD71AE569A9001E5C4E /* FaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
+		11CE1FD91AE56A02001E5C4E /* FaceUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				113AD0431AD5E93D00B63036 /* ViewController.swift */,
 				113AD0451AD5E93D00B63036 /* Main.storyboard */,
+				11CE1FD71AE569A9001E5C4E /* FaceViewController.swift */,
+				11CE1FD91AE56A02001E5C4E /* FaceUIView.swift */,
 				113AD03F1AD5E93D00B63036 /* Supporting Files */,
 			);
 			path = SwiftCalculator;
@@ -212,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CE1FD81AE569A9001E5C4E /* FaceViewController.swift in Sources */,
 				113AD0441AD5E93D00B63036 /* ViewController.swift in Sources */,
 				113AD0421AD5E93D00B63036 /* AppDelegate.swift in Sources */,
+				11CE1FDA1AE56A02001E5C4E /* FaceUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,7 @@
 				113AD05D1AD5E93D00B63036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		113AD05E1AD5E93D00B63036 /* Build configuration list for PBXNativeTarget "SwiftCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				113AD0601AD5E93D00B63036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
